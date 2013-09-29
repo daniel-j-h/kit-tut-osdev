@@ -1,0 +1,37 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+
+body {
+  height: 100%;
+  font-family: 'Oswald', arial, serif;
+  font-size: 16px;
+  padding: 0% 20% 0% 10%;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAIAAABv85FHAAAAAXNSR0IArs4c6QAAAB5JREFUCNdj/P//PwMOwMSAG1BFrqKiApnLSGe3AADunAdz8LN03AAAAABJRU5ErkJggg==);
+}
+h1 {
+  color: #ff8000;
+  padding: 1% 0% 0% 0%;
+}
+a {
+  text-decoration: none;
+  padding: 0% 1% 0% 0%;
+}
+ul {
+  list-style-type: none;
+  padding: 5% 0% 10% 5%;
+}
+footer {
+  padding: 10% 0% 0% 1%;
+  color: #777;
+}
+.to-upper {
+  text-transform: uppercase;
+}
+.to-cap {
+  text-transform: capitalize;
+}
+.space-tb {
+  padding: 1% 0% 1% 0%;
+}
+.space-lr {
+  padding: 0% 1% 0% 1%;
+}

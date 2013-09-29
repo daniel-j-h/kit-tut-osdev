@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Operating Systems / System Architecture</title>
+    <meta name="description" content="My public repository for the Operating Systems / System Architecture tutorial at the Karlsruhe Institute of Technology (KIT)">
+    <meta name="author" content="Daniel J. H.">
+    <link href="css/default.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1 class="to-upper">Operating Systems / System Architecture</h1>
+    </header>
+    <article>
+      <p class="to-upper">
+        <small>
+          <a class="space-lr" href="https://github.com/daniel-j-h/kit-tut-osdev/commits/gh-pages.atom">RSS Feed</a>
+          <a class="space-lr" href="https://github.com/daniel-j-h/kit-tut-osdev/tree/gh-pages">Repository</a>
+          <a class="space-lr" href="mailto:daniel&part;trvx&sdot;org">Contact</a>
+        </small>
+      </p>
+      <ul>
+        {%- for fd in entries|sort %}
+        <li class="to-cap space-tb">
+          <a href="build/{{ fd }}.html">{{ fd }}</a>
+          {% if meta.get(fd) %}<small>{{ meta.get(fd).get('date') }}</small><p>{{ meta.get(fd).get('description') }}</p>{% endif %}
+        </li>
+        {%- endfor %}
+      </ul>
+    </article>
+    <footer>
+      <small>Index built {{ modified }}</small>
+    </footer>
+  </body>
+</html>
