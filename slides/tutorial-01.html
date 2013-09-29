@@ -1,16 +1,18 @@
 {% extends 'slide.tmpl' %}
+{% from 'render.tmpl' import md_slide, html_slide %}
+
 {% block slides %}
 
 
-<section data-markdown><script type="text/template">
-### Hey
 
-</script></section>
+{% call md_slide('Hey') %}
+* first
+* second
+{% endcall %}
 
 
-<section data-markdown><script type="text/template">
-### Slide A
 
+{% call md_slide('Slide A') %}
 * a
 * b
 * c
@@ -18,20 +20,18 @@
 <aside class="notes">
 Hidden notes here
 </aside>
+{% endcall %}
 
-</script></section>
 
 
-<section data-markdown><script type="text/template">
-### Slide B
-
+{% call md_slide('Slide B') %}
     #include <stdio.h>
 
     int main() {
         printf("Hello");
     }
+{% endcall %}
 
-</script></section>
 
 
 {% endblock %}

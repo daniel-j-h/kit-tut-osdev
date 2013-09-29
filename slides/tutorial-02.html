@@ -1,11 +1,15 @@
 {% extends 'slide.tmpl' %}
+{% from 'render.tmpl' import md_slide, html_slide %}
+
 {% block slides %}
 
 
-<section data-markdown><script type="text/template">
-### Hey
 
-</script></section>
+{% call md_slide('Hey') %}
+* prev
+* next
+{% endcall %}
+
 
 
 {% endblock %}

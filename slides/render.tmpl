@@ -1,0 +1,22 @@
+{# Render a slide from Markdown or HTML input  #}
+
+
+{% macro md_slide(title) %}
+<section data-markdown><script type="text/template">
+### {{ title }}
+
+{{ caller() }}
+</script></section>
+{% endmacro %}
+
+
+{% macro html_slide(title) %}
+<section>
+<h3>{{ title }}</h3>
+
+{{ caller() }}
+</section>
+{% endmacro %}
+
+
+{# vim: set tabstop=4 shiftwidth=4 expandtab: #}
