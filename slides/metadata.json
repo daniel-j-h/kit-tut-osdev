@@ -1,10 +1,6 @@
 {
   "tutorial-01" : {
-    "date" : "Oct. 21 2013",
-    "description" : "Topic A"
-  },
-  "tutorial-02" : {
-    "date" : "Oct. 28 2013",
-    "description" : "Topic B"
+    "date" : "Oct. 25 2013",
+    "description" : "Introduction, Basics"
   }
 }

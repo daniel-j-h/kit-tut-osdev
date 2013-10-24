@@ -4,34 +4,68 @@
 {% block slides %}
 
 
-
-{% call md_slide('Hey') %}
-* first
-* second
+{% call md_slide('Hey!') %}
+* **Daniel** Hofmann
+* Master, 1st semester
+* <daniel+osdev@trvx.org>
+* Tut. 12, Fr 9:45, -119
+* Slides [osdev.trvx.org](http://osdev.trvx.org)
 {% endcall %}
 
 
-
-{% call md_slide('Slide A') %}
-* a
-* b
-* c
-
-<aside class="notes">
-Hidden notes here
-</aside>
+{% call md_slide('Assignments') %}
+* Every two weeks
+* Mailbox 50.34
+* Assignment 0: Deadline Oct. 28
 {% endcall %}
 
 
-
-{% call md_slide('Slide B') %}
-    #include <stdio.h>
-
-    int main() {
-        printf("Hello");
-    }
+{% call md_slide('Books') %}
+* "Operating system concepts", Silberschatz
+* "The C programming language" Kernighan, Ritchie
 {% endcall %}
 
+
+{% call md_slide('OS Basics') %}
+* Tasks of an operating system
+* Policy vs. mechanism
+{% endcall %}
+
+
+{% call md_slide('Hardware Basics') %}
+* Kernel mode vs. user mode
+* Privileged instructions, examples
+{% endcall %}
+
+
+{% call md_slide('Polling I/O') %}
+Calculate CPU overhead
+
+* 4000MHz CPU, 400 cycles per pollOp
+* 32 bit per poll, 80MB/s
+{% endcall %}
+
+
+{% call md_slide('Linux Basics') %}
+* Shell
+* How to get help
+* How to find files
+* Search in specific files
+{% endcall %}
+
+
+{% call md_slide('C Basics') %}
+* Executable from multiple sources
+* make
+{% endcall %}
+
+
+{% call md_slide('Reminder') %}
+* Assignment deadline
+* Tut. 12, Fr 9:45, -119
+* Slides [osdev.trvx.org](http://osdev.trvx.org)
+* **No tuts next week**
+{% endcall %}
 
 
 {% endblock %}
