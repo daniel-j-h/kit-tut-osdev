@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Introduction, Basics</title>
+    <title>I/O, Bits and Bytes, C, Stacks</title>
 
     <meta name="author" content="Daniel J. H.">
 
@@ -31,8 +31,8 @@
       <div class="slides">
 
         <section>
-          <h1>Introduction, Basics</h1>
-          <h3>Oct. 25 2013</h3>
+          <h1>I/O, Bits and Bytes, C, Stacks</h1>
+          <h3>Nov. 8 2013</h3>
         </section>
 
         
@@ -40,27 +40,10 @@
 
 
 <section data-markdown><script type="text/template">
-### Hey!
+### Write this down!
 
 
-* **Daniel** Hofmann
-* Master, 1st semester
-* <daniel+osdev@trvx.org>
-* Tut. 12, Fr 9:45, -119
 * Slides [osdev.trvx.org](http://osdev.trvx.org)
-
-</script></section>
-
-
-
-
-<section data-markdown><script type="text/template">
-### Assignments
-
-
-* Every two weeks
-* Mailbox 50.34
-* Assignment 0: Deadline Oct. 28
 
 </script></section>
 
@@ -73,6 +56,7 @@
 
 * "Operating system concepts", Silberschatz
 * "The C programming language", Kernighan, Ritchie
+* "21st Century C", Klemens
 
 </script></section>
 
@@ -80,23 +64,12 @@
 
 
 <section data-markdown><script type="text/template">
-### OS Basics
+### I/O Techniques
 
 
-* Tasks of an operating system
-* Policy vs. mechanism
-
-</script></section>
-
-
-
-
-<section data-markdown><script type="text/template">
-### Hardware Basics
-
-
-* Kernel mode vs. user mode
-* Privileged instructions, examples
+* Polling
+* Interrupt-driven
+* DMA
 
 </script></section>
 
@@ -104,27 +77,12 @@
 
 
 <section data-markdown><script type="text/template">
-### Polling I/O
+### Interrupts
 
 
-Calculate CPU overhead
-
-* 4000MHz CPU, 400 cycles per pollOp
-* 32 bit per poll, 80MB/s
-
-</script></section>
-
-
-
-
-<section data-markdown><script type="text/template">
-### Linux Basics
-
-
-* Shell
-* How to get help
-* How to find files
-* Search in specific files
+* Interrupt
+* Exception
+* System call
 
 </script></section>
 
@@ -132,11 +90,121 @@ Calculate CPU overhead
 
 
 <section data-markdown><script type="text/template">
-### C Basics
+### Interrupt details
 
 
-* Executable from multiple sources
-* make
+* Interrupt vector
+* Interrupt service routine
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Bits and Bytes
+
+
+* Reasons for setting/clearing single bit
+* How to set/clear nth bit of integer
+* How to retrieve bits 2 to 5 of integer
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Basics in C Programming
+
+
+* Compile workflow
+* Headers
+* structs, unions
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Fancy Examples
+
+
+[Bloom Filters](https://en.wikipedia.org/wiki/Bloom_filter)
+
+* Source at [trvx.org/~daniel/bloom/](http://trvx.org/~daniel/bloom/)
+* Should be in the VAB, too
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Fancy Examples
+
+
+Implement the following Bloom Filter features
+
+* add, contains
+* union, intersect
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Stack Basics
+
+
+* push, pop
+* allocate/deallocate by subtraction/addition
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Stack Example
+
+
+Stack's contents after each instruction
+
+```
+double foo(int *p) {
+    int x;
+    double y;
+    x = *p;
+    // do something useful
+    return y;
+}
+```
+
+```
+double bar() {
+    double d;
+    int i = 42;
+    d = foo(&i);
+    return d;
+}
+```
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Not just on paper
+
+
+Compile with debug information (-g), no optimizations (-O0)
+
+* gdb ./bloom: info args, info locals, info frame, backtrace
+* valgrind --leak-check=full ./bloom
 
 </script></section>
 
@@ -147,10 +215,7 @@ Calculate CPU overhead
 ### Reminder
 
 
-* Assignment deadline
-* Tut. 12, Fr 9:45, -119
 * Slides [osdev.trvx.org](http://osdev.trvx.org)
-* **No tuts next week**
 
 </script></section>
 

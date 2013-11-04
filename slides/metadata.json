@@ -2,5 +2,9 @@
   "tutorial-01" : {
     "date" : "Oct. 25 2013",
     "description" : "Introduction, Basics"
+  },
+  "tutorial-02" : {
+    "date" : "Nov. 8 2013",
+    "description" : "I/O, Bits and Bytes, C, Stacks"
   }
 }

@@ -1,0 +1,113 @@
+{% extends 'slide.tmpl' %}
+{% from 'render.tmpl' import md_slide, html_slide %}
+
+{% block slides %}
+
+
+{% call md_slide('Write this down!') %}
+* Slides [osdev.trvx.org](http://osdev.trvx.org)
+{% endcall %}
+
+
+{% call md_slide('Books') %}
+* "Operating system concepts", Silberschatz
+* "The C programming language", Kernighan, Ritchie
+* "21st Century C", Klemens
+{% endcall %}
+
+
+{% call md_slide('I/O Techniques') %}
+* Polling
+* Interrupt-driven
+* DMA
+{% endcall %}
+
+
+{% call md_slide('Interrupts') %}
+* Interrupt
+* Exception
+* System call
+{% endcall %}
+
+
+{% call md_slide('Interrupt details') %}
+* Interrupt vector
+* Interrupt service routine
+{% endcall %}
+
+
+{% call md_slide('Bits and Bytes') %}
+* Reasons for setting/clearing single bit
+* How to set/clear nth bit of integer
+* How to retrieve bits 2 to 5 of integer
+{% endcall %}
+
+
+{% call md_slide('Basics in C Programming') %}
+* Compile workflow
+* Headers
+* structs, unions
+{% endcall %}
+
+
+{% call md_slide('Fancy Examples') %}
+[Bloom Filters](https://en.wikipedia.org/wiki/Bloom_filter)
+
+* Source at [trvx.org/~daniel/bloom/](http://trvx.org/~daniel/bloom/)
+* Should be in the VAB, too
+{% endcall %}
+
+
+{% call md_slide('Fancy Examples') %}
+Implement the following Bloom Filter features
+
+* add, contains
+* union, intersect
+{% endcall %}
+
+
+{% call md_slide('Stack Basics') %}
+* push, pop
+* allocate/deallocate by subtraction/addition
+{% endcall %}
+
+
+{% call md_slide('Stack Example') %}
+Stack's contents after each instruction
+
+```
+double foo(int *p) {
+    int x;
+    double y;
+    x = *p;
+    // do something useful
+    return y;
+}
+```
+
+```
+double bar() {
+    double d;
+    int i = 42;
+    d = foo(&i);
+    return d;
+}
+```
+{% endcall %}
+
+
+{% call md_slide('Not just on paper') %}
+Compile with debug information (-g), no optimizations (-O0)
+
+* gdb ./bloom: info args, info locals, info frame, backtrace
+* valgrind --leak-check=full ./bloom
+{% endcall %}
+
+
+{% call md_slide('Reminder') %}
+* Slides [osdev.trvx.org](http://osdev.trvx.org)
+{% endcall %}
+
+
+{% endblock %}
+{# vim: set tabstop=4 shiftwidth=4 expandtab: #}
