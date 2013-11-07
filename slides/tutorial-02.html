@@ -17,9 +17,11 @@
 
 
 {% call md_slide('I/O Techniques') %}
+[Linux Device Drivers](http://lwn.net/Kernel/LDD3/) CC BY-SA-2.0, [Chapter on I/O, p. 24+](http://lwn.net/images/pdf/LDD3/ch15.pdf)
+
 * Polling
-* Interrupt-driven
-* DMA
+* Interrupt-driven (e.g. see [1](https://www.kernel.org/doc/Documentation/IRQ.txt))
+* DMA (e.g. see [2](https://www.kernel.org/doc/Documentation/DMA-API.txt), [3](https://www.kernel.org/doc/Documentation/DMA-API-HOWTO.txt))
 {% endcall %}
 
 
@@ -31,6 +33,8 @@
 
 
 {% call md_slide('Interrupt details') %}
+[Linux Device Drivers](http://lwn.net/Kernel/LDD3/) CC BY-SA-2.0, [Chapter on Interrupts](http://lwn.net/images/pdf/LDD3/ch10.pdf)
+
 * Interrupt vector
 * Interrupt service routine
 {% endcall %}
@@ -51,7 +55,7 @@
 
 
 {% call md_slide('Fancy Examples') %}
-[Bloom Filters](https://en.wikipedia.org/wiki/Bloom_filter)
+[Bloom Filters](https://en.wikipedia.org/wiki/Bloom_filter), [bitly implementation (counting, scaling)](https://github.com/bitly/dablooms#bloom-filter-basics)
 
 * Source at [trvx.org/~daniel/bloom/](http://trvx.org/~daniel/bloom/)
 * Should be in the VAB, too
@@ -96,6 +100,31 @@ double bar() {
 {% endcall %}
 
 
+{% call md_slide('Parameter passing') %}
+* Registers
+* Code segment
+* Fixed position
+* Heap
+{% endcall %}
+
+
+{% call md_slide('Functions vs. macros') %}
+* Functions
+* Macros
+
+And what about inlined functions?
+{% endcall %}
+
+
+{% call md_slide('Variadic macros') %}
+    #define bloom_add_all(in, ...) \
+      for (const char **it = (const char*[]){__VA_ARGS__, NULL}; *it; ++it) \
+        bloom_add(in, *it);
+
+    bloom_add_all(ctx, "Erik", "Shark Erik", "Shark");
+{% endcall %}
+
+
 {% call md_slide('Not just on paper') %}
 Compile with debug information (-g), no optimizations (-O0)
 
@@ -104,8 +133,19 @@ Compile with debug information (-g), no optimizations (-O0)
 {% endcall %}
 
 
+{% call md_slide('I want to learn even more') %}
+* Stack: [top of stack](http://eli.thegreenplace.net/2011/02/04/where-the-top-of-the-stack-is-on-x86/), [frame layout](http://eli.thegreenplace.net/2011/09/06/stack-frame-layout-on-x86-64/)
+* OS Dev wiki: [stack](http://wiki.osdev.org/Stack), [overview](http://wiki.osdev.org/Main_Page)
+* [Reading C declarations](http://eli.thegreenplace.net/2008/07/18/reading-c-type-declarations/)
+* [C reference](http://en.cppreference.com/w/c)
+{% endcall %}
+
+
 {% call md_slide('Reminder') %}
 * Slides [osdev.trvx.org](http://osdev.trvx.org)
+* Lectures (11th+): Mo 9:45 Nusselt, Di 9:45 HS 37
+* Have a look at the tut assignments in advance!
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
 {% endcall %}
 
 
