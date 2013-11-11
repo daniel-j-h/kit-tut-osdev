@@ -1,0 +1,40 @@
+{% extends 'slide.tmpl' %}
+{% from 'render.tmpl' import md_slide, html_slide %}
+
+{% block slides %}
+
+
+{% call md_slide('Multi-Programming') %}
+* Single- vs. Multi-Programming systems
+* Advantages of Multi-Programming
+* What about Polling vs. Interrupts
+* CPU-bound vs. I/O-bound processes
+* Why do we need a good mixture?
+{% endcall %}
+
+
+{% call md_slide('User/Kernel Boundary') %}
+* kernel invocation
+* voluntary vs. involuntary
+* synchronous vs. asynchronous
+* kernel stack vs user stack
+{% endcall %}
+
+
+{% call md_slide('System Calls') %}
+* system call, trap
+* system call number and OS API
+* parameter passing
+* library calls
+* user-, kernel-level transition
+* user level read/write buffer
+{% endcall %}
+
+
+{% call md_slide('GUI') %}
+* what program to run on click
+{% endcall %}
+
+
+{% endblock %}
+{# vim: set tabstop=4 shiftwidth=4 expandtab: #}

@@ -6,5 +6,9 @@
   "tutorial-02" : {
     "date" : "Nov. 8 2013",
     "description" : "I/O, Bits and Bytes, C, Stacks"
+  },
+  "tutorial-03" : {
+    "date" : "Nov. 15 2013",
+    "description" : "Multi-Programming, User/Kernel Boundary, Syscalls"
   }
 }
