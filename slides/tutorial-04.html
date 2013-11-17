@@ -1,0 +1,91 @@
+{% extends 'slide.tmpl' %}
+{% from 'render.tmpl' import md_slide, html_slide %}
+
+{% block slides %}
+
+
+{% call md_slide('Warm-Up') %}
+* WileyPlus
+* Don't send me 5MB mails!
+{% endcall %}
+
+{% call md_slide('Resources') %}
+Rutgers notes
+
+* [Processes](http://www.cs.rutgers.edu/~pxk/416/notes/04-processes.html)
+* [Threads](http://www.cs.rutgers.edu/~pxk/416/notes/05-threads.html)
+{% endcall %}
+
+
+{% call md_slide('Processes') %}
+* Accessing memory of another process
+* Syscall fork: man 2 fork
+{% endcall %}
+
+
+{% call md_slide('fork(2) example') %}
+* Fork child process
+* Print out parent/child
+* Wait for termination
+{% endcall %}
+
+
+{% call md_slide('fork(2) example') %}
+```
+int main() {
+  pid_t pid = fork();
+
+  switch(pid) {
+    case -1:
+      printf("fork failed\n");
+      break;
+    case 0:
+      printf("child %ld\n", (long) pid);
+      break;
+    default:
+      printf("parent %ld\n", (long) pid);
+      wait(NULL);
+  };
+}
+```
+
+Compile e.g. with:
+
+    gcc -Wall -Wextra -std=c99 -pedantic fork.c
+{% endcall %}
+
+
+{% call md_slide('Processes') %}
+* Shell: Launching programs
+{% endcall %}
+
+
+{% call md_slide('Processes Switching') %}
+* What is a process
+* Process Control Block (PCB)
+* Context switch
+{% endcall %}
+
+
+{% call md_slide('Threads') %}
+* Process, address space, thread
+* Threading models: 1:1, N:1, N:M
+* Triggering a 1:1 vs. N:1 thread switch
+* CPU, I/O bound: purpose of N:1
+{% endcall %}
+
+
+{% call md_slide('Threads') %}
+* fork(2): copies of threads, too?
+* Kernel-mode threads
+{% endcall %}
+
+
+{% call md_slide('Reminder') %}
+* Have a look at the tut assignments in advance!
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+{% endcall %}
+
+
+{% endblock %}
+{# vim: set tabstop=4 shiftwidth=4 expandtab: #}

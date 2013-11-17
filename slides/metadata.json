@@ -10,5 +10,9 @@
   "tutorial-03" : {
     "date" : "Nov. 15 2013",
     "description" : "Multi-Programming, User/Kernel Boundary, Syscalls"
+  },
+  "tutorial-04" : {
+    "date" : "Nov. 22 2013",
+    "description" : "Processes, Threads"
   }
 }

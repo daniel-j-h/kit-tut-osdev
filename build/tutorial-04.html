@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Processes, Threads</title>
+
+    <meta name="author" content="Daniel J. H.">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/simple.css" id="theme">
+
+    <link rel="stylesheet" href="../css/github.css">
+
+    <script>
+        document.write( '<link rel="stylesheet" href="../reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Processes, Threads</h1>
+          <h3>Nov. 22 2013</h3>
+        </section>
+
+        
+
+
+
+<section data-markdown><script type="text/template">
+### Warm-Up
+
+
+* WileyPlus
+* Don't send me 5MB mails!
+
+</script></section>
+
+
+
+<section data-markdown><script type="text/template">
+### Resources
+
+
+Rutgers notes
+
+* [Processes](http://www.cs.rutgers.edu/~pxk/416/notes/04-processes.html)
+* [Threads](http://www.cs.rutgers.edu/~pxk/416/notes/05-threads.html)
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Processes
+
+
+* Accessing memory of another process
+* Syscall fork: man 2 fork
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### fork(2) example
+
+
+* Fork child process
+* Print out parent/child
+* Wait for termination
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### fork(2) example
+
+
+```
+int main() {
+  pid_t pid = fork();
+
+  switch(pid) {
+    case -1:
+      printf("fork failed\n");
+      break;
+    case 0:
+      printf("child %ld\n", (long) pid);
+      break;
+    default:
+      printf("parent %ld\n", (long) pid);
+      wait(NULL);
+  };
+}
+```
+
+Compile e.g. with:
+
+    gcc -Wall -Wextra -std=c99 -pedantic fork.c
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Processes
+
+
+* Shell: Launching programs
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Processes Switching
+
+
+* What is a process
+* Process Control Block (PCB)
+* Context switch
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Threads
+
+
+* Process, address space, thread
+* Threading models: 1:1, N:1, N:M
+* Triggering a 1:1 vs. N:1 thread switch
+* CPU, I/O bound: purpose of N:1
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Threads
+
+
+* fork(2): copies of threads, too?
+* Kernel-mode threads
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Reminder
+
+
+* Have a look at the tut assignments in advance!
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+
+</script></section>
+
+
+
+
+      </div>
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+
+    <script>
+      Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: false,
+        keyboard: true,
+        touch: true,
+        overview: true,
+        center: false,
+        loop: false,
+        rtl: false,
+        autoSlide: 0,
+        mouseWheel: false,
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        transitionSpeed: 'default', // default/fast/slow
+        backgroundTransition: 'default', // default/linear/none
+
+        dependencies: [
+          { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>
