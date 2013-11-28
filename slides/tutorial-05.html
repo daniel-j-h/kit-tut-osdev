@@ -1,0 +1,85 @@
+{% extends 'slide.tmpl' %}
+{% from 'render.tmpl' import md_slide, html_slide %}
+
+{% block slides %}
+
+
+{% call md_slide('Warm-Up') %}
+* WileyPlus, last chance!
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+{% endcall %}
+
+
+{% call md_slide('Resources') %}
+* [Threads](http://www.cs.rutgers.edu/~pxk/416/notes/05-threads.html)
+* [Scheduling](http://www.cs.rutgers.edu/~pxk/416/notes/07-scheduling.html)
+* [Real Time Scheduling](http://www.cs.rutgers.edu/~pxk/416/notes/08-rt_scheduling.html)
+{% endcall %}
+
+
+{% call md_slide('Thread cancellation') %}
+* Asynchronous cancellation
+* Deferred cancellation
+{% endcall %}
+
+
+{% call md_slide('Spawning threads') %}
+* Suppose: Webserver spawns new thread for each request
+* Issues with this approach? Alternatives?
+{% endcall %}
+
+
+{% call md_slide('Scheduling Basics') %}
+* Purpose of scheduling
+* State transitions: new, running, ready, waiting, terminated
+* Long- vs. medium- vs. short-term scheduler
+* Quality of scheduling policy: metrics/criteria
+{% endcall %}
+
+
+{% call md_slide('Scheduling Metrics') %}
+* Processor utilization
+* Throughput
+* Turnaround time
+* Waiting time
+* Response time
+{% endcall %}
+
+
+{% call md_slide('Scheduling Basics') %}
+* Hardware support for non-cooperative scheduling policy
+* Common length of a timeslice
+* Short vs. long timeslice
+* Switching to thread in same address space
+{% endcall %}
+
+
+{% call md_slide('Scheduling Policies') %}
+* Shortest Job First (SJF)
+* Preemptive SFJ vs. non-preemptive SJF
+* Priority scheduling
+* Multilevel feedback queue scheduling
+{% endcall %}
+
+
+{% call md_slide('Lottery Scheduling') %}
+* Basic idea behind lottery scheduling
+* Advantages over "classical" priority-based scheduling
+{% endcall %}
+
+
+{% call md_slide('SMP Scheduling') %}
+* Differences to single-processor scheduling
+* Central ready queue vs. per-processor ready queues
+{% endcall %}
+
+
+{% call md_slide('Reminder') %}
+* Have a look at the tut assignments in advance!
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+* Assignment deadline!
+{% endcall %}
+
+
+{% endblock %}
+{# vim: set tabstop=4 shiftwidth=4 expandtab: #}
