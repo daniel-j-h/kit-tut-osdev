@@ -1,0 +1,66 @@
+{% extends 'slide.tmpl' %}
+{% from 'render.tmpl' import md_slide, html_slide %}
+
+{% block slides %}
+
+
+{% call md_slide('Warm-Up') %}
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+* Feedback evaluation
+{% endcall %}
+
+
+{% call md_slide('Resources') %}
+* [Scheduling](http://www.cs.rutgers.edu/~pxk/416/notes/07-scheduling.html)
+* [CFS overview](http://www.ibm.com/developerworks/library/l-completely-fair-scheduler/)
+* [CFS documentation](https://www.kernel.org/doc/Documentation/scheduler/)
+{% endcall %}
+
+
+{% call md_slide('Completely Fair Scheduler (CFS)') %}
+* Overview
+* What about starvation?
+* left-most, minimal runtime: issues?
+* Starting compute-bound tasks at the same time
+{% endcall %}
+
+
+{% call md_slide('Interprocess Communication (IPC)') %}
+* Concurrent activities: interaction
+* Timeout for IPC operations
+* Async send: buffer location
+* atomic send-and-receive vs. send, receive
+{% endcall %}
+
+
+{% call md_slide('Emulation using IPC') %}
+* Async operations with sync ones
+* Sync operations with async ones
+{% endcall %}
+
+
+{% call md_slide('Race Conditions') %}
+* Concept, examples
+* Avoiding race conditions
+* critical-, entry-, exit-, remainer-section
+{% endcall %}
+
+
+{% call md_slide('Pipes') %}
+
+    ls | less
+
+* Explain concepts
+* Write C program, spawning childs
+{% endcall %}
+
+
+{% call md_slide('Reminder') %}
+* Have a look at the tut assignments in advance!
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+* Assignment deadline!
+{% endcall %}
+
+
+{% endblock %}
+{# vim: set tabstop=4 shiftwidth=4 expandtab: #}

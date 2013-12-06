@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Scheduler: CFS, IPC</title>
+
+    <meta name="author" content="Daniel J. H.">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/simple.css" id="theme">
+
+    <link rel="stylesheet" href="../css/github.css">
+
+    <script>
+        document.write( '<link rel="stylesheet" href="../reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Scheduler: CFS, IPC</h1>
+          <h3>Dec. 6 2013</h3>
+        </section>
+
+        
+
+
+
+<section data-markdown><script type="text/template">
+### Warm-Up
+
+
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+* Feedback evaluation
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Resources
+
+
+* [Scheduling](http://www.cs.rutgers.edu/~pxk/416/notes/07-scheduling.html)
+* [CFS overview](http://www.ibm.com/developerworks/library/l-completely-fair-scheduler/)
+* [CFS documentation](https://www.kernel.org/doc/Documentation/scheduler/)
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Completely Fair Scheduler (CFS)
+
+
+* Overview
+* What about starvation?
+* left-most, minimal runtime: issues?
+* Starting compute-bound tasks at the same time
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Interprocess Communication (IPC)
+
+
+* Concurrent activities: interaction
+* Timeout for IPC operations
+* Async send: buffer location
+* atomic send-and-receive vs. send, receive
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Emulation using IPC
+
+
+* Async operations with sync ones
+* Sync operations with async ones
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Race Conditions
+
+
+* Concept, examples
+* Avoiding race conditions
+* critical-, entry-, exit-, remainer-section
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Pipes
+
+
+
+    ls | less
+
+* Explain concepts
+* Write C program, spawning childs
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Reminder
+
+
+* Have a look at the tut assignments in advance!
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+* Assignment deadline!
+
+</script></section>
+
+
+
+
+      </div>
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+
+    <script>
+      Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: false,
+        keyboard: true,
+        touch: true,
+        overview: true,
+        center: false,
+        loop: false,
+        rtl: false,
+        autoSlide: 0,
+        mouseWheel: false,
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        transitionSpeed: 'default', // default/fast/slow
+        backgroundTransition: 'default', // default/linear/none
+
+        dependencies: [
+          { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>

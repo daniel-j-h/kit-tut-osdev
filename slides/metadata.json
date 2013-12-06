@@ -18,5 +18,9 @@
   "tutorial-05" : {
     "date" : "Nov. 29 2013",
     "description" : "Scheduling Basics"
+  },
+  "tutorial-06" : {
+    "date" : "Dec. 6 2013",
+    "description" : "Scheduler: CFS, IPC"
   }
 }
