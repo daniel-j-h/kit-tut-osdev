@@ -22,5 +22,9 @@
   "tutorial-06" : {
     "date" : "Dec. 6 2013",
     "description" : "Scheduler: CFS, IPC"
+  },
+  "tutorial-07" : {
+    "date" : "Dec. 13 2013",
+    "description" : "Shared Memory, Synchronization"
   }
 }
