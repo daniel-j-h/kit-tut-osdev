@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Deadlocks, Resource Allocation Graphs</title>
+
+    <meta name="author" content="Daniel J. H.">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/simple.css" id="theme">
+
+    <link rel="stylesheet" href="../css/github.css">
+
+    <script>
+        document.write( '<link rel="stylesheet" href="../reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Deadlocks, Resource Allocation Graphs</h1>
+          <h3>Dec. 20 2013</h3>
+        </section>
+
+        
+
+
+
+<section data-markdown><script type="text/template">
+### Warm-Up
+
+
+* Recap
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Prerequisites For Deadlocks
+
+
+* What is a deadlock, example
+* Necessary conditions for deadlocks
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Resource Allocation Graphs
+
+
+* Basic concepts: vertices, edges
+* Multiple instances per resource
+* Cycles in RAGs
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Searching For Deadlocks
+
+
+
+```
+void t1() {                 void t2() {
+    if (counter == 0) {         lock(s3);
+      lock(s1);                 counter++;
+      counter++;                // work
+      unlock(s1);               if (counter == 2) {
+    }                             lock(s2);
+    lock(s2);                     // work
+    lock(s3);                     unlock(s2);
+    // work                     }
+    unlock(s3);                 lock(s1);
+    unlock(s2);                 // work
+}                               unlock(s3);
+                                unlock(s1);
+                            }
+```
+
+* Race conditions
+* Deadlocks
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Deadlock Prevention
+
+
+* Safe state
+* Deadlock prevention vs. Deadlock avoidance
+* Necessary conditions for deadlocks: prevention example
+* Spooling system example
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Priority Inversion
+
+
+* Mars Pathfinder
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Reminder
+
+
+* Happy Holidays!
+
+</script></section>
+
+
+
+
+      </div>
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+
+    <script>
+      Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: false,
+        keyboard: true,
+        touch: true,
+        overview: true,
+        center: false,
+        loop: false,
+        rtl: false,
+        autoSlide: 0,
+        mouseWheel: false,
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        transitionSpeed: 'default', // default/fast/slow
+        backgroundTransition: 'default', // default/linear/none
+
+        dependencies: [
+          { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>

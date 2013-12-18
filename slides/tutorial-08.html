@@ -1,0 +1,68 @@
+{% extends 'slide.tmpl' %}
+{% from 'render.tmpl' import md_slide, html_slide %}
+
+{% block slides %}
+
+
+{% call md_slide('Warm-Up') %}
+* Recap
+{% endcall %}
+
+
+{% call md_slide('Prerequisites For Deadlocks') %}
+* What is a deadlock, example
+* Necessary conditions for deadlocks
+{% endcall %}
+
+
+{% call md_slide('Resource Allocation Graphs') %}
+* Basic concepts: vertices, edges
+* Multiple instances per resource
+* Cycles in RAGs
+{% endcall %}
+
+
+{% call md_slide('Searching For Deadlocks') %}
+
+```
+void t1() {                 void t2() {
+    if (counter == 0) {         lock(s3);
+      lock(s1);                 counter++;
+      counter++;                // work
+      unlock(s1);               if (counter == 2) {
+    }                             lock(s2);
+    lock(s2);                     // work
+    lock(s3);                     unlock(s2);
+    // work                     }
+    unlock(s3);                 lock(s1);
+    unlock(s2);                 // work
+}                               unlock(s3);
+                                unlock(s1);
+                            }
+```
+
+* Race conditions
+* Deadlocks
+{% endcall %}
+
+
+{% call md_slide('Deadlock Prevention') %}
+* Safe state
+* Deadlock prevention vs. Deadlock avoidance
+* Necessary conditions for deadlocks: prevention example
+* Spooling system example
+{% endcall %}
+
+
+{% call md_slide('Priority Inversion') %}
+* Mars Pathfinder
+{% endcall %}
+
+
+{% call md_slide('Reminder') %}
+* Happy Holidays!
+{% endcall %}
+
+
+{% endblock %}
+{# vim: set tabstop=4 shiftwidth=4 expandtab: #}
