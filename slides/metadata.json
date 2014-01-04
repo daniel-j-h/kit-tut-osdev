@@ -30,5 +30,9 @@
   "tutorial-08" : {
     "date" : "Dec. 20 2013",
     "description" : "Deadlocks, Resource Allocation Graphs"
+  },
+  "tutorial-09" : {
+    "date" : "Jan. 10 2014",
+    "description" : "Memory Management"
   }
 }

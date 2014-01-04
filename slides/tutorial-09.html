@@ -1,0 +1,106 @@
+{% extends 'slide.tmpl' %}
+{% from 'render.tmpl' import md_slide, html_slide %}
+
+{% block slides %}
+
+
+{% call md_slide('Warm-Up') %}
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+{% endcall %}
+
+
+{% call md_slide('Resources') %}
+* [Memory Management](http://www.cs.rutgers.edu/~pxk/416/notes/09-memory.html)
+* [Paging](http://www.cs.rutgers.edu/~pxk/416/notes/10-paging.html)
+{% endcall %}
+
+
+{% call md_slide('Memory Management Basics') %}
+* logical vs physical address
+* internal vs external fragmentation
+{% endcall %}
+
+
+{% call md_slide('Segmentation') %}
+* Concepts of segmentation
+* How does it work
+{% endcall %}
+
+
+{% call md_slide('Memory Allocation Policies') %}
+* first-fit vs best-fit vs worst-fit
+{% endcall %}
+
+
+{% call md_slide('Memory Allocation Policies') %}
+Example: 4200 memory cells, with allocation:
+
+* 1000 starting at 1000
+* 500 starting at 2900
+* 800 starting at 3400
+{% endcall %}
+
+
+{% call md_slide('Memory Allocation Policies') %}
+Example: best-fit policy
+
+* request for 500, 1200, 200 blocks
+{% endcall %}
+
+
+{% call md_slide('Memory Allocation Policies') %}
+Example: best-fit policy, now with compaction
+
+* towards address 0 in ascending order of starting address
+* request for 500, 1200, 200 blocks
+{% endcall %}
+
+
+{% call md_slide('Memory Allocation Policies') %}
+When is compaction a viable option to reduce external fragmentation?
+{% endcall %}
+
+
+{% call md_slide('Memory Management Data Structures') %}
+* memory block management: bitmaps, linked lists
+* storage space needed for: 128 MB memory, units of n bytes
+* linked list: assume 32-bit members: address, length, node pointer
+{% endcall %}
+
+
+{% call md_slide('Paging') %}
+* Concepts of paging
+* single-level page table address translation
+* disadvantage of single-level page table
+{% endcall %}
+
+
+{% call md_slide('Paging') %}
+Example: single-level page table, 4 byte entry, 4kB page size
+
+* 32-bit wide logical addresses
+* 48-bit wide logical addresses
+{% endcall %}
+
+
+{% call md_slide('Paging') %}
+* Alternatives to single-level page tables
+* Respective strengths and weaknesses
+{% endcall %}
+
+
+{% call md_slide('Paging') %}
+* Translation look-aside buffer (TLB)
+* valid-bit
+* CR3 register reloading
+{% endcall %}
+
+
+{% call md_slide('Reminder') %}
+* Have a look at the tut assignments in advance!
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+{% endcall %}
+
+
+{% endblock %}
+{# vim: set tabstop=4 shiftwidth=4 expandtab: #}

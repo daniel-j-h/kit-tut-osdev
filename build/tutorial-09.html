@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Memory Management</title>
+
+    <meta name="author" content="Daniel J. H.">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/simple.css" id="theme">
+
+    <link rel="stylesheet" href="../css/github.css">
+
+    <script>
+        document.write( '<link rel="stylesheet" href="../reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Memory Management</h1>
+          <h3>Jan. 10 2014</h3>
+        </section>
+
+        
+
+
+
+<section data-markdown><script type="text/template">
+### Warm-Up
+
+
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Resources
+
+
+* [Memory Management](http://www.cs.rutgers.edu/~pxk/416/notes/09-memory.html)
+* [Paging](http://www.cs.rutgers.edu/~pxk/416/notes/10-paging.html)
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Memory Management Basics
+
+
+* logical vs physical address
+* internal vs external fragmentation
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Segmentation
+
+
+* Concepts of segmentation
+* How does it work
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Memory Allocation Policies
+
+
+* first-fit vs best-fit vs worst-fit
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Memory Allocation Policies
+
+
+Example: 4200 memory cells, with allocation:
+
+* 1000 starting at 1000
+* 500 starting at 2900
+* 800 starting at 3400
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Memory Allocation Policies
+
+
+Example: best-fit policy
+
+* request for 500, 1200, 200 blocks
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Memory Allocation Policies
+
+
+Example: best-fit policy, now with compaction
+
+* towards address 0 in ascending order of starting address
+* request for 500, 1200, 200 blocks
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Memory Allocation Policies
+
+
+When is compaction a viable option to reduce external fragmentation?
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Memory Management Data Structures
+
+
+* memory block management: bitmaps, linked lists
+* storage space needed for: 128 MB memory, units of n bytes
+* linked list: assume 32-bit members: address, length, node pointer
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Paging
+
+
+* Concepts of paging
+* single-level page table address translation
+* disadvantage of single-level page table
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Paging
+
+
+Example: single-level page table, 4 byte entry, 4kB page size
+
+* 32-bit wide logical addresses
+* 48-bit wide logical addresses
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Paging
+
+
+* Alternatives to single-level page tables
+* Respective strengths and weaknesses
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Paging
+
+
+* Translation look-aside buffer (TLB)
+* valid-bit
+* CR3 register reloading
+
+</script></section>
+
+
+
+
+<section data-markdown><script type="text/template">
+### Reminder
+
+
+* Have a look at the tut assignments in advance!
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+
+</script></section>
+
+
+
+
+      </div>
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+
+    <script>
+      Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: false,
+        keyboard: true,
+        touch: true,
+        overview: true,
+        center: false,
+        loop: false,
+        rtl: false,
+        autoSlide: 0,
+        mouseWheel: false,
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        transitionSpeed: 'default', // default/fast/slow
+        backgroundTransition: 'default', // default/linear/none
+
+        dependencies: [
+          { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>
