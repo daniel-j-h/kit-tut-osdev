@@ -1,0 +1,156 @@
+{% extends 'slide.tmpl' %}
+{% from 'render.tmpl' import md_slide, html_slide %}
+
+{% block slides %}
+
+
+{% call md_slide('Warm-Up') %}
+* Exam+Bonus: mind the registration deadline
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+{% endcall %}
+
+
+{% call md_slide('Resources') %}
+* [Memory Management](http://www.cs.rutgers.edu/~pxk/416/notes/09-memory.html)
+* [Paging](http://www.cs.rutgers.edu/~pxk/416/notes/10-paging.html)
+{% endcall %}
+
+
+{% call md_slide('Pagefault Handling') %}
+* Fetching data for unmapped page
+* Stealing frames from application, modified page
+{% endcall %}
+
+
+{% call md_slide('Pagefault Handling') %}
+* Information required to setup and restore page contents
+* Is this information dependant on page table type?
+* Where can you store this information?
+{% endcall %}
+
+
+{% call md_slide('Hardware- vs. Software-Walked Page Tables') %}
+* Explain difference, and how it affects the TLB
+* Respective differences in contents of multi-level page table
+* Invocation of TLB miss handler, pagefault handler
+{% endcall %}
+
+
+{% call md_slide('Hardware- vs. Software-Walked Page Tables') %}
+* Hardware-walked multi-level page table
+* Set up and access from software with virt. mem
+{% endcall %}
+
+
+{% call md_slide('Replacement Policies') %}
+See [Page Replacement](http://www.cs.rutgers.edu/~pxk/416/notes/10-paging.html)
+
+* FIFO
+* LRU
+* Clock
+* Oracle
+{% endcall %}
+
+
+{% call md_slide('Replacement Policies') %}
+Example
+
+* task with four page frames allocated
+* virtual page number of each page frame
+* time of last page loading into page frame
+* time of last access to page frame
+* referenced and modified bits
+{% endcall %}
+
+
+{% call html_slide('Replacement Policies') %}
+<table>
+  <thead>
+    <tr>
+      <th>frame</th>
+      <th>virt. page</th>
+      <th>load time</th>
+      <th>access time</th>
+      <th>referenced</th>
+      <th>modified</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>0</td>
+        <td>2</td>
+        <td>60</td>
+        <td>161</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>130</td>
+        <td>160</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>0</td>
+        <td>26</td>
+        <td>162</td>
+        <td>1</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>3</td>
+        <td>20</td>
+        <td>163</td>
+        <td>1</td>
+        <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  Ref. string for oracle: 4, 0, 0, 0, 2, 4, 2, 1, 0, 3, 2
+</p>
+<p>
+  Pagefault to virtual page 4 occurs.
+</p>
+{% endcall %}
+
+
+{% call md_slide('Replacement Policies') %}
+Expected LRU performance:
+
+* stack
+* code
+* heap
+{% endcall %}
+
+
+{% call md_slide('Replacement Policies') %}
+Equal allocation, page replacement policy:
+
+* local
+* global
+{% endcall %}
+
+
+{% call md_slide('Memory Allocation') %}
+* Buddy allocator
+* mem: 2^k, min. and max. free entries for 2^m request, m < k
+* type of fragmentation
+* how to reduce fragmentation
+{% endcall %}
+
+
+{% call md_slide('Reminder') %}
+* Exam+Bonus: mind the registration deadline
+* Have a look at the tut assignments in advance!
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+{% endcall %}
+
+
+{% endblock %}
+{# vim: set tabstop=4 shiftwidth=4 expandtab: #}

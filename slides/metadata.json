@@ -38,5 +38,9 @@
   "tutorial-10" : {
     "date" : "Jan. 17 2014",
     "description" : "Caches, Paging"
+  },
+  "tutorial-11" : {
+    "date" : "Jan. 24 2014",
+    "description" : "Paging, Memory Allocation"
   }
 }
