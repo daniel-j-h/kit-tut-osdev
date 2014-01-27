@@ -1,0 +1,73 @@
+{% extends 'slide.tmpl' %}
+{% from 'render.tmpl' import md_slide, html_slide %}
+
+{% block slides %}
+
+
+{% call md_slide('Warm-Up') %}
+* Exam+Bonus: mind the registration deadline
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+{% endcall %}
+
+
+{% call md_slide('Resources') %}
+* [Device Drivers](http://www.cs.rutgers.edu/~pxk/416/notes/11-devices.html)
+* [File Systems](http://www.cs.rutgers.edu/~pxk/416/notes/12-filesystems.html)
+{% endcall %}
+
+
+{% call md_slide('Hard Disks') %}
+* Cylinder, Track, Sector
+* Addressing modes
+{% endcall %}
+
+
+{% call md_slide('Hard Disks') %}
+Example
+
+* 7200 RPM
+* 512 bytes sector size
+* 160 sectors per track
+
+estimated sustained transfer rate
+{% endcall %}
+
+
+{% call md_slide('Hard Disks') %}
+* Native Command Queuing
+* Sector sparing
+{% endcall %}
+
+
+{% call md_slide('Solid-State Drives') %}
+* Rewriting vs writing
+* Spare blocks
+* trim command
+{% endcall %}
+
+
+{% call md_slide('Accessing Files') %}
+* Absolute vs relative pathname
+* Methods for accessing a file
+* Movement inside file
+* Alternative random access implementation
+* open syscall
+{% endcall %}
+
+
+{% call md_slide('Fun With Files In Linux') %}
+* Create empty file
+* Execute rights for owner
+* Sparse files
+{% endcall %}
+
+
+{% call md_slide('Reminder') %}
+* Exam+Bonus: mind the registration deadline
+* Have a look at the tut assignments in advance!
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+{% endcall %}
+
+
+{% endblock %}
+{# vim: set tabstop=4 shiftwidth=4 expandtab: #}

@@ -42,5 +42,9 @@
   "tutorial-11" : {
     "date" : "Jan. 24 2014",
     "description" : "Paging, Memory Allocation"
+  },
+  "tutorial-12" : {
+    "date" : "Jan. 31 2014",
+    "description" : "Hard Disks"
   }
 }
