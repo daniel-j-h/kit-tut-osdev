@@ -46,5 +46,9 @@
   "tutorial-12" : {
     "date" : "Jan. 31 2014",
     "description" : "Hard Disks"
+  },
+  "tutorial-13" : {
+    "date" : "Feb. 7 2014",
+    "description" : "Disk Space Allocation, VFS"
   }
 }

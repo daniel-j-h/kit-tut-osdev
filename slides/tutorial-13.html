@@ -1,0 +1,61 @@
+{% extends 'slide.tmpl' %}
+{% from 'render.tmpl' import md_slide, html_slide %}
+
+{% block slides %}
+
+
+{% call md_slide('Warm-Up') %}
+* Exam+Bonus: mind the registration deadline
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+{% endcall %}
+
+
+{% call md_slide('Resources') %}
+* [Device Drivers](http://www.cs.rutgers.edu/~pxk/416/notes/11-devices.html)
+* [File Systems](http://www.cs.rutgers.edu/~pxk/416/notes/12-filesystems.html)
+{% endcall %}
+
+
+{% call md_slide('Disk Space Allocation') %}
+* Contiguous Allocation: advantages and problems
+* Linked Allocation: major problem
+* File Allocation Table (FAT)
+{% endcall %}
+
+
+{% call md_slide('Disk Space Allocation') %}
+* Indexed Allocation
+* Max. size of file ~ size of index block: large files
+{% endcall %}
+
+
+{% call md_slide('Disk Space Allocation') %}
+Example
+
+* disk block 8kB
+* pointer to disk block 4 bytes
+* inode: 12 pointers to direct blocks
+* additionally: 1 to single, 1 to double, 1 to triple indirect block
+* calculate max. size a file can have
+{% endcall %}
+
+
+{% call md_slide('Virtual File System') %}
+* Purpose of VFS
+* Potential drawbacks
+* Resolving hard and symbolic links
+* Mounting a filesystem
+* In-kernel datastructures required for handling of open files
+{% endcall %}
+
+
+{% call md_slide('Reminder') %}
+* Next week: recap, exam preparation, send questions!
+* Exam+Bonus: mind the registration deadline
+* Have a look at the tut assignments in advance!
+* Assignments (only P, not T): <daniel+osdev@trvx.org>
+{% endcall %}
+
+
+{% endblock %}
+{# vim: set tabstop=4 shiftwidth=4 expandtab: #}
