@@ -1,0 +1,74 @@
+{% extends 'slide.tmpl' %}
+{% from 'render.tmpl' import md_slide, html_slide %}
+
+{% block slides %}
+
+
+{% call md_slide('Warm-Up') %}
+* Exam+Bonus: mind the registration deadline
+{% endcall %}
+
+
+{% call md_slide('Resources') %}
+* [File Systems](http://www.cs.rutgers.edu/~pxk/416/notes/12-filesystems.html)
+* [File System Designs](http://www.cs.rutgers.edu/~pxk/416/notes/13-fs-studies.html)
+* [Special Devices](http://www.cs.rutgers.edu/~pxk/416/notes/14-specialfs.html)
+{% endcall %}
+
+
+{% call md_slide('File System Implementation') %}
+Stored in inode?
+
+* filename, file size, file type
+* name of containing directory
+* number, name, location of symbolic links to the file
+* number, name, location of hard links to the file
+* access rights, timestamps, file contents
+* ordered list of blocks occupied by file
+{% endcall %}
+
+
+{% call md_slide('File System Implementation') %}
+* How can directories be implemented
+* What are hard links
+* What are symbolic links
+{% endcall %}
+
+
+{% call md_slide('File System Implementation') %}
+Example: file f, hard link h to f, symbolic link s to f
+
+    ls -li
+    mv f g
+    touch f
+{% endcall %}
+
+
+{% call md_slide('File System Implementation') %}
+* Benefit of symbolic links
+* Access Control Lists (ACL)
+{% endcall %}
+
+
+{% call md_slide('File System Cache') %}
+* Writes flushed to disk
+* Fixed vs. variable limit
+* Read ahead
+{% endcall %}
+
+
+{% call md_slide('Recap') %}
+* User stack vs. kernel stack
+* Kernel mode: process state
+* Interrupt, exception handling
+* Interrupts while in kernel mode
+{% endcall %}
+
+
+{% call md_slide('Reminder') %}
+* Exam+Bonus: mind the registration deadline
+{% endcall %}
+
+
+{% endblock %}
+{# vim: set tabstop=4 shiftwidth=4 expandtab: #}

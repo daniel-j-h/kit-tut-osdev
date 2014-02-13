@@ -50,5 +50,9 @@
   "tutorial-13" : {
     "date" : "Feb. 7 2014",
     "description" : "Disk Space Allocation, VFS"
+  },
+  "tutorial-14" : {
+    "date" : "Feb. 14 2014",
+    "description" : "File System Implementation, Recap"
   }
 }
